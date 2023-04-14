@@ -1,15 +1,24 @@
-
 // EXERCISE 8
 // Return an array with a bank account object with the greatest balance value
 // Array example: bankAccounts in /data/data.js
 // getClientWithGreatestBalance(bankAccounts) => [{ name: 'SomeName', balance: 32, ... }]
 
 export function getClientWithGreatestBalance(array) {
-  // Your code goes here...
+  let highClient;
+  let highestBalance;
 
+  for (let i = 0; i < array.length; i++) {
+    if (!highestBalance) {
+      highestBalance = array[i].balance;
+    }
+
+    if (array[i].balance !== 0 && array[i].balance > highestBalance) {
+      highestBalance = array[i].balance;
+      highClient = array[i];
+    }
+  }
+  return [highClient];
 }
-
-
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-8"
